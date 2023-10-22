@@ -20,6 +20,5 @@ inputs = {
   tags = {
     environment = "${include.root.locals.environment}"
     region      = "${include.root.locals.aws_region}"
-    extra       = "michel"
   }
 }
