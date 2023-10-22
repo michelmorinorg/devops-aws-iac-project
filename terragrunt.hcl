@@ -39,5 +39,3 @@ remote_state {
     dynamodb_table = "terraform-locks"
   }
 }
-
-iam_role = "${local.iam_role}"
