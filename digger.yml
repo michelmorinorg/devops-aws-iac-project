@@ -1,5 +1,4 @@
 projects:
-projects:
 - name: vpc-staging
   dir: staging/us-east-1/vpc
   terragrunt: true
