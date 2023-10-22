@@ -6,11 +6,11 @@ on:
     types: [ closed, opened, synchronize, reopened ]
   issue_comment:
     types: [created]
+    if: contains(github.event.comment.body, 'digger')
   workflow_dispatch:
 
 jobs:
   build:
-    if: github.event_name == 'pull_request' || github.event_name != 'workflow_dispatch' || contains(github.event.comment.body, 'digger')
     runs-on: ubuntu-latest
     permissions:    
       contents: write      # required to merge PRs
