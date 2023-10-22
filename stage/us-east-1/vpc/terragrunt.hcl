@@ -18,7 +18,8 @@ inputs = {
   enable_vpn_gateway = false
 
   tags = {
-    environment = "${include.root.locals.environment}"
-    region      = "${include.root.locals.aws_region}"
+    Environment = "${include.root.locals.environment}"
+    Region      = "${include.root.locals.aws_region}"
+    Service     = "${basename(get_repo_root())}"
   }
 }
