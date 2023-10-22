@@ -21,5 +21,6 @@ inputs = {
     Environment = "${include.root.locals.environment}"
     Region      = "${include.root.locals.aws_region}"
     Service     = "${basename(get_repo_root())}"
+    Extra       = "michel"
   }
 }
