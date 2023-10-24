@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: digger run
-        uses: diggerhq/digger@v0.1.27
+        uses: diggerhq/digger@v0.2.0
         with:
           setup-aws: true
           aws-role-to-assume: ${{ secrets.STAGING_ROLE }}
