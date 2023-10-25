@@ -22,6 +22,9 @@ jobs:
       - name: digger run
         uses: diggerhq/digger@v0.2.0
         with:
+          digger-token: ${{ secrets.DIGGER_TOKEN }}
+          digger-hostname: 'https://cloud.digger.dev'
+          digger-organisation: 'michelmorin'
           setup-aws: true
           aws-role-to-assume: ${{ secrets.STAGING_ROLE }}
           aws-region: us-east-1
