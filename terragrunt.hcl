@@ -32,10 +32,12 @@ remote_state {
     if_exists = "overwrite"
   }
   config = {
-    bucket         = "terraform-${basename(get_repo_root())}"
+    bucket         = lower("terraform-${basename(get_repo_root())}-${local.environment}")
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = local.aws_region
     encrypt        = true
     dynamodb_table = "terraform-locks"
   }
 }
+
+iam_role = "${local.iam_role}"
