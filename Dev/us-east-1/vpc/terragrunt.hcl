@@ -22,5 +22,6 @@ inputs = {
     Region      = "${include.root.locals.aws_region}"
     Service     = "${basename(get_repo_root())}"
     Extra       = "Michel"
+    Extra2      = "Michel2"
   }
 }

@@ -44,18 +44,15 @@ jobs:
       - name: digger run
         uses: diggerhq/digger@v0.2.0
         with:
-          digger-token: ${{ secrets.DIGGER_TOKEN }}
-          digger-hostname: 'https://cloud.digger.dev'
-          digger-organisation: 'michelmorin'
           setup-aws: true
           aws-role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: us-east-1
           setup-terragrunt: true
           terragrunt-version: 0.52.4
         env:
-          DIGGER_GITHUB_TOKEN: ${{ secrets.DIGGER_GITHUB_TOKEN }}
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DIGGER_GITHUB_TOKEN: ${{ secrets.DIGGER_GITHUB_TOKEN }}
           DEV_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
           DEV_ROLE: ${{ secrets.DEV_ROLE }}
           STAGING_ACCOUNT_ID: ${{ secrets.STAGING_ACCOUNT_ID }}
