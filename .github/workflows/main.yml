@@ -45,7 +45,7 @@ jobs:
         uses: diggerhq/digger@v0.2.0
         with:
           setup-aws: true
-          aws-role-to-assume: ${{ secrets.STAGING_ROLE }}
+          aws-role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: us-east-1
           setup-terragrunt: true
           terragrunt-version: 0.52.4
