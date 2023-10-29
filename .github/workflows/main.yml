@@ -46,7 +46,7 @@ jobs:
         with:
           digger-token: ${{ secrets.DIGGER_TOKEN }}
           digger-hostname: 'https://cloud.digger.dev'
-          digger-organisation: 'michelmorin'
+          digger-organisation: 'michelmorinorg'
           setup-aws: true
           aws-role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: us-east-1
