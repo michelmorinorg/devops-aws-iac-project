@@ -1,0 +1,31 @@
+on:
+    workflow_dispatch:
+      inputs:
+        project:
+          description: 'Digger project to perform destroy on'
+          required: true
+  jobs:
+    destroy:
+      runs-on: ubuntu-latest
+      steps:
+      - name: digger destroy
+        uses: diggerhq/digger@v0.2.2
+        with:
+          mode: manual
+          command: "digger destroy"
+          project: "${{ inputs.project }}"
+          setup-aws: true
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          setup-terragrunt: true
+          terragrunt-version: 0.52.4
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEV_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
+          DEV_ROLE: ${{ secrets.DEV_ROLE }}
+          STAGING_ACCOUNT_ID: ${{ secrets.STAGING_ACCOUNT_ID }}
+          STAGING_ROLE: ${{ secrets.STAGING_ROLE }}
+          PRODUCTION_ACCOUNT_ID: ${{ secrets.PRODUCTION_ACCOUNT_ID }}
+          PRODUCTION_ROLE: ${{ secrets.PRODUCTION_ROLE }}
