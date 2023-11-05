@@ -42,7 +42,7 @@ jobs:
 
     steps:
       - name: digger run
-        uses: diggerhq/digger@v0.2.0
+        uses: diggerhq/digger@v0.2.2
         with:
           digger-token: ${{ secrets.DIGGER_TOKEN }}
           digger-hostname: 'https://cloud.digger.dev'
