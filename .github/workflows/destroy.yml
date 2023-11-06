@@ -1,3 +1,5 @@
+name: Digger Terragrunt Destroy
+
 on:
     workflow_dispatch:
       inputs:
@@ -8,7 +10,7 @@ jobs:
   destroy:
     runs-on: ubuntu-latest
     permissions:    
-      id-token: write      # This is required for aws oidc connection
+      id-token: write
     steps:
     - name: digger destroy
       uses: diggerhq/digger@v0.2.2

@@ -1,4 +1,4 @@
-name: Drift Detection
+name: Digger Terragrunt Drift Detection
 
 on:  
   workflow_dispatch:
@@ -9,7 +9,7 @@ jobs:
   detect-drift:
     runs-on: ubuntu-latest
     permissions:    
-      id-token: write      # This is required for aws oidc connection
+      id-token: write
     steps:
     - name: digger drift detection
       uses: diggerhq/digger@v0.2.2
@@ -20,7 +20,7 @@ jobs:
         aws-region: us-east-1
         setup-terragrunt: true
         terragrunt-version: 0.52.4
-        # drift-detection-slack-notification-url: ${{ secrets.DRIFT_DETECTION_SLACK_NOTIFICATION }}
+        drift-detection-slack-notification-url: ${{ secrets.DRIFT_DETECTION_SLACK_NOTIFICATION }}
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
