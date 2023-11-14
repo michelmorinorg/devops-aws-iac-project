@@ -2,7 +2,7 @@ name: Digger Terragrunt Drift Detection
 
 on:  
   workflow_dispatch:
-  schedule: ## Schedule the job to run at 12.am daily.
+  schedule: ## Schedule the job to run at 12.am once a week
     - cron: '0 0 * * 0'
 
 jobs:
