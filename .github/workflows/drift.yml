@@ -1,28 +1,26 @@
-name: Digger Terragrunt Destroy
+name: Digger Terragrunt Drift Detection
 
-on:
-    workflow_dispatch:
-      inputs:
-        project:
-          description: 'Digger project to perform destroy on'
-          required: true
+on:  
+  workflow_dispatch:
+  schedule: ## Schedule the job to run at 12.am once a week
+    - cron: '0 0 * * 0'
+
 jobs:
-  destroy:
+  detect-drift:
     runs-on: ubuntu-latest
     permissions:    
       id-token: write
     steps:
-    - name: digger destroy
+    - name: digger drift detection
       uses: diggerhq/digger@v0.4.2
       with:
-        mode: manual
-        command: "digger destroy"
-        project: "${{ inputs.project }}"
+        mode: drift-detection
         setup-aws: true
         aws-role-to-assume: ${{ secrets.AWS_ROLE }}
         aws-region: us-east-1
         setup-terragrunt: true
         terragrunt-version: 0.52.4
+        drift-detection-slack-notification-url: ${{ secrets.DRIFT_DETECTION_SLACK_NOTIFICATION }}
         no-backend: true
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
