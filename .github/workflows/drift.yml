@@ -12,7 +12,7 @@ jobs:
       id-token: write
     steps:
     - name: digger drift detection
-      uses: diggerhq/digger@v0.4.6
+      uses: diggerhq/digger@v0.4.8
       with:
         mode: drift-detection
         setup-aws: true
