@@ -13,7 +13,7 @@ jobs:
       id-token: write
     steps:
     - name: digger destroy
-      uses: diggerhq/digger@v0.4.8
+      uses: diggerhq/digger@v0.4.12
       with:
         mode: manual
         command: "digger destroy"
