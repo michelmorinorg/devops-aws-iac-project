@@ -41,7 +41,7 @@ jobs:
 
     steps:
       - name: digger run
-        uses: diggerhq/digger@v0.4.13
+        uses: diggerhq/digger@v0.4.15
         with:
           setup-aws: true
           aws-role-to-assume: ${{ secrets.AWS_ROLE }}
